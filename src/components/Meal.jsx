@@ -7,6 +7,7 @@ const Meal = () => {
     const [url, setUrl] = useState("https:/www.themealdb.com/api/json/v1/1/search.php?f=a")
     const [item, setItem] = useState()
     const [show, setShow] = useState(false)
+    const [search, setSearch] = useState("")
     useEffect(()=>{
     fetch(url).then(res=> res.json()).then(data=>{
         console.log(data.meals)
@@ -21,6 +22,12 @@ const Meal = () => {
     setUrl(`https:/www.themealdb.com/api/json/v1/1/search.php?f=${alpha}`)
   }
 
+  const searchRecipe=(evt)=>{
+    if(evt.key == "Enter"){
+        setUrl(`https:/www.themealdb.com/api/json/v1/1/search.php?s=${search}`)
+    }
+  }
+
   return (
     <>
         <div className="main">
@@ -29,8 +36,9 @@ const Meal = () => {
                 <h4>Food is something that bring us all together.</h4>
             </div>
             <div className="searchBox">
-                <input type="text" className='search-bar' />
-
+                <input type="text" className='search-bar' onChange={e=>setSearch(e.target.value)} 
+                onKeyPress={searchRecipe} />
+                
             </div>
             <div className="container">
                
