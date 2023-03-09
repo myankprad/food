@@ -1,6 +1,6 @@
 import React from "react";
 
-const Recepieindex = () => {
+const Recepieindex = ({alphaIndex}) => {
   const alpha = [
     "A",
     "B",
@@ -29,12 +29,13 @@ const Recepieindex = () => {
     "Y",
     "Z",
   ];
+  var num = 0; 
   return <>
     {
-        alpha.map(i =>{
+        alpha.map(item =>{
             return (
-                <div className="numBox">
-                    <h3>{i}</h3>
+                <div className="numBox" key={num++} onClick={()=>alphaIndex(item)}>
+                    <h3>{item}</h3>
                 </div>
             )
         })
