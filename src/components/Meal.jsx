@@ -4,10 +4,10 @@ import Recepieindex from './Recepieindex'
 
 const Meal = () => {
    
-    const [url, setUrl] = useState("https:/www.themealdb.com/api/json/v1/1/search.php?f=m")
-    const [item, setItem] = useState()
-    const [show, setShow] = useState(false)
-    const [search, setSearch] = useState("")
+    // const [url, setUrl] = useState("https:/www.themealdb.com/api/json/v1/1/search.php?f=m")
+    // const [item, setItem] = useState()
+    // const [show, setShow] = useState(false)
+    // const [search, setSearch] = useState("")
     useEffect(()=>{
     fetch(url).then(res=> res.json()).then(data=>{
         console.log(data.meals)
