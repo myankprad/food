@@ -12,7 +12,7 @@ const Recipeinfo = () => {
         fetch(`https:/www.themealdb.com/api/json/v1/1/lookup.php?i=${MealId}`)
         .then(res=>res.json())
         .then(data=>{
-            setItem(data.meals)
+            setItem(data.meals[0])
         })
     }
     if(item){
@@ -52,12 +52,14 @@ const Recipeinfo = () => {
                     <br />
                     <h4>{item.strInstructions}</h4>
                 </div>
-                <div className="video">
+               
+            </div>
+
+            <div className="video">
                     <iframe src={`https://www.youtube.com/embed/${vID}`} >
 
                     </iframe>
                 </div>
-            </div>
             </>
         )
       }
